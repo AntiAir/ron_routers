@@ -1,0 +1,5 @@
+---
+- name: role practice
+  hosts: slave1
+  roles:
+  - { role: jenkins, become: yes }
