@@ -1,0 +1,11 @@
+---
+- name: System Check
+  hosts: slaves
+  tasks:
+  - name: Checking disk space
+    command: df -h
+    register: disk_space
+    
+  - name: displaying result
+    debug:
+      msg: "{{ disk_space.stdout_lines}}"

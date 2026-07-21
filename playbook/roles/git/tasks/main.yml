@@ -1,0 +1,11 @@
+---
+- name: install git
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+  register: apt_result
+  until: apt_result is success
+  retries: 30
+  delay: 10
+
