@@ -1,0 +1,11 @@
+---
+- name: say "Hello"
+  hosts: all
+  tasks:
+  - name: echo "Hello World"
+    command: echo 'hello world'
+    register: result
+  
+  - name: print stdout
+    debug:
+      msg: "{{result.stdout}}"

@@ -1,0 +1,11 @@
+---
+- name: System Check
+  hosts: slaves
+  tasks:
+  - name: Checking disk space
+    ansible.builtin.command: df -h
+    register: disk_space
+    
+  - name: displaying result
+    ansible.builtin.debug:
+      msg: "{{ disk_space.stdout_lines}}"
